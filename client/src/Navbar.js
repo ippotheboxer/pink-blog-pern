@@ -6,6 +6,7 @@ export default function Navbar() {
         <Link to="/" className="site-title">Blog</Link>
         <ul>
             <CustomLink to="/view">View blogs</CustomLink>
+            <CustomLink to="/write">Write blog</CustomLink>
         </ul>
     </nav>
     )
