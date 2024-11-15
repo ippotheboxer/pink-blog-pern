@@ -133,3 +133,20 @@ form input, textarea {
 input[type=text], textarea {
   box-sizing: border-box;
   width: 500px; }
+
+
+.content {
+  padding-top: 80px;
+}
+
+.post {
+  border: 2px solid #FB6F92;
+    background-color: #FFE5EC;
+    color: #FB6F92;
+    text-align: center;
+    padding: 14px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+}

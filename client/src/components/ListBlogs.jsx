@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Blog from "./Blog";
+import SpecificBlog from "./SpecificBlog";
+
 function ListBlogs() {
     const [blogs, setBlogs] = useState([]);
 
@@ -17,7 +19,7 @@ function ListBlogs() {
         getBlogs();
     }, []);
 
-    return (<main className="gradient-background">
+    return (<main className="gradient-background" style={{justifyContent: "start"}}>
         <div className="content">
         <h2>View blogs</h2>
         {blogs.map((blog) => (
