@@ -2,9 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar({user}) {
-    const logout = () => {
-        window.open("http://localhost:5000/auth/logout");
-    }
     return <div className="navbar"> 
     <span className="logo"> <Link className="link" to="/">Pink Blog</Link> </span>
     <div className="pageLinks">

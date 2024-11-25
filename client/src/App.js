@@ -13,11 +13,10 @@ import NoPage from "./pages/NoPage";
 import ViewBlogs from "./pages/ViewBlogs";
 import WriteBlog from "./pages/WriteBlog"
 import FullPageBlog from "./pages/FullPageBlog";
-import SpecificBlog from "./components/SpecificBlog";
 import Login from "./pages/Login";
 
 function App() {
-  const user = false;
+  const user = true;
   return (
     <>
     <BrowserRouter>
@@ -29,7 +28,6 @@ function App() {
         <Route path='/view' element={user ? <ViewBlogs /> : <Login />} />
         <Route path='/write' element={user ? <WriteBlog /> : <Login />}></Route>
         <Route path='/blog' element={<FullPageBlog />}></Route>
-        <Route path="/blog/:id" element={user ? <SpecificBlog /> : <Navigate to="/login"/>} />
         <Route path='*' element={<NoPage />} />
       </Routes>
     </BrowserRouter>

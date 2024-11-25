@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import Blog from "./Blog";
-import SpecificBlog from "./SpecificBlog";
 
 function ListBlogs() {
     const [blogs, setBlogs] = useState([]);
