@@ -28,5 +28,5 @@ export default function Blogs() {
             authorName={blog.author_name}/>
             ))}
         </div>
-    )
+    );
 }
