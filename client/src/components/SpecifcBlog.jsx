@@ -16,13 +16,14 @@ export default function SpecificBlog(props) {
         onLoad();
     }, []);
 
-    return (<>
+    return (
     <BlogPost 
+    key={blog.blog_id} 
+    id={blog.blog_id} 
     blogTitle={blog.blog_title} 
     blogContent={blog.blog_content} 
     dateCreated={blog.creation_date} 
     authorName={blog.author_name}
     />
-    </>
     );
 }

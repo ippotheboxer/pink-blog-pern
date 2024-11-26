@@ -278,6 +278,8 @@ input{
   background-color: #fff0f3;
   width: 100vw;
   height: 80vh;
+  position: relative;
+  padding: 20px 20px;
 }
 
 .blogPost h2 {
@@ -297,4 +299,18 @@ input{
 
 a:-webkit-any-link {
   text-decoration: none;
+}
+
+.blogActionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 400px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
+}
+
+.blog-action {
+  width: 150px;
 }
