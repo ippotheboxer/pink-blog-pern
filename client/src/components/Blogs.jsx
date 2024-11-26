@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 import Blog from "./Blog"
 import { getBlogs } from "../api/blog";
 
@@ -20,12 +21,14 @@ export default function Blogs() {
 
     return ( <div>
         {blogs.map((blog) => (
-            <Blog key={blog.blog_id} 
-            id={blog.blog_id} 
-            blogTitle={blog.blog_title} 
-            blogContent={blog.blog_content} 
-            dateCreated={blog.creation_date} 
-            authorName={blog.author_name}/>
+            <Link to={`blog/${blog.blog_id}`}>
+                <Blog key={blog.blog_id} 
+                id={blog.blog_id} 
+                blogTitle={blog.blog_title} 
+                blogContent={blog.blog_content} 
+                dateCreated={blog.creation_date} 
+                authorName={blog.author_name}/>
+            </Link>
             ))}
         </div>
     );

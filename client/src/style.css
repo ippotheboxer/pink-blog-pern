@@ -270,3 +270,31 @@ input{
   top: 80px;
   color:#FB6F92;
 }
+
+.blogPost {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #fff0f3;
+  width: 100vw;
+  height: 80vh;
+}
+
+.blogPost h2 {
+  font-style: normal;
+  font-size: 40px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.authorText {
+  color: #F0C2FF;
+}
+
+.blogPost p {
+  font-size: 15px;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}

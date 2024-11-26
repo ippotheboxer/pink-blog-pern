@@ -1,9 +1,11 @@
-import React from "react";
+import SpecificBlog from "../components/SpecifcBlog";
+import { useParams } from "react-router-dom";
 
 function FullPageBlog() {
+    const { id } = useParams();
     return <main className="gradient-background" style={{justifyContent: "start"}}>
         <div className="content">
-            <h2>Your blog</h2>
+            <SpecificBlog id={id}/>
     </div>
     </main>
 }

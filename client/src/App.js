@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" element={user ? <Navigate to="/"/> : <Login />} /> 
         <Route path='/view' element={user ? <ViewBlogs /> : <Login />} />
         <Route path='/write' element={user ? <WriteBlog /> : <Login />}></Route>
-        <Route path='/blog' element={<FullPageBlog />}></Route>
+        <Route path='/view/blog/:id' element={user ? <FullPageBlog /> : <Navigate to="/login"/>} />
         <Route path='*' element={<NoPage />} />
       </Routes>
     </BrowserRouter>
