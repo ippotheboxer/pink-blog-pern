@@ -14,7 +14,7 @@ import FullPageBlog from "./pages/FullPageBlog";
 import Login from "./pages/Login";
 import EditBlog from "./pages/EditBlog";
 import Register from "./pages/Register";
-
+import Dashboard from "./pages/Dashboard";
 
 const PrivateRoutes = () => {
   const {isAuth} = useSelector(state => state.auth);
@@ -23,7 +23,7 @@ const PrivateRoutes = () => {
 
 const RestrictedRoutes = () => {
   const {isAuth} = useSelector(state => state.auth);
-  return <>{!isAuth ? <Outlet /> : <Navigate to='/home' />}</>
+  return <>{!isAuth ? <Outlet /> : <Navigate to='/dashboard' />}</>
 }
 
 
@@ -35,15 +35,16 @@ function App() {
         <Route path='/home' element={<HomePage /> } />
 
         <Route element={<PrivateRoutes />}>
-        <Route path='/view' element={<ViewBlogs />} />
-        <Route path='/write' element={<WriteBlog />} />
-        <Route path='/view/blog/:id' element={<FullPageBlog />} />
-        <Route path='/edit/blog/:id' element={<EditBlog />}  />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path='/view' element={<ViewBlogs />} />
+          <Route path='/write' element={<WriteBlog />} />
+          <Route path='/view/blog/:id' element={<FullPageBlog />} />
+          <Route path='/edit/blog/:id' element={<EditBlog />}  />
         </Route> 
 
       <Route element={<RestrictedRoutes />}>
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
       </Route>
 
         <Route path='*' element={<NoPage />} />

@@ -1,8 +1,23 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { onLogout } from '../api/auth';
+import { unAuthenticateUser } from '../redux/slices/authSlice';
 
 function Navbar() {
-    const {isAuth} = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  const {isAuth} = useSelector(state => state.auth);
+
+  const logout = async () => {
+    try {
+      await onLogout();
+  
+      dispatch(unAuthenticateUser());
+      localStorage.removeItem('isAuth');
+    } catch (error) {
+      console.log(error.response);
+    }
+  }
 
     return (
     <nav className="navbar">
@@ -14,6 +29,11 @@ function Navbar() {
 
         {isAuth ? (
           <div className='list pageLinks'>
+
+            <NavLink to='/dashboard'>
+              <span className='pageLinkItem'>Dashboard</span>
+            </NavLink>
+
             <NavLink to='/write'>
               <span className='pageLinkItem'>Write blog</span>
             </NavLink>
@@ -21,6 +41,11 @@ function Navbar() {
             <NavLink to='/view'>
               <span className='pageLinkItem'>View blogs</span>
             </NavLink>
+
+            <NavLink onClick={() => logout()}>
+            <span className='pageLinkItem' style={{color: "#FB6F92"}} >Logout</span>
+            </NavLink>
+
           </div>
         ) : (
           <div className='list pageLinks'>
