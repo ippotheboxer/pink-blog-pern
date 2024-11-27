@@ -3,7 +3,7 @@ const db = require("../db");
 // GET blogs
 exports.getBlogs = async(req, res) => {
     try {
-        const {rows} = await db.query("SELECT * FROM blog_data");
+        const {rows} = await db.query("SELECT blog_id, blog_title, blog_content, author_name, TO_CHAR(creation_date, 'DD Mon YYYY') as creation_date FROM blog_data");
         return res.status(200).json({
             success: true,
             blogs: rows
@@ -36,7 +36,7 @@ exports.createBlog = async (req, res) => {
 exports.getBlogByID = async (req, res) => {
     try {
         const {id} = req.params;
-        const {rows} = await db.query("SELECT * FROM blog_data WHERE blog_id = $1", [id]);
+        const {rows} = await db.query("SELECT blog_id, blog_title, blog_content, author_name, TO_CHAR(creation_date, 'DD Mon YYYY') as creation_date FROM blog_data WHERE blog_id = $1", [id]);
         if (rows.length === 0) {
             res.json("No blog with given ID exists.");
         } else {

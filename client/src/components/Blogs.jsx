@@ -19,10 +19,11 @@ export default function Blogs() {
     }, []);
     
 
-    return ( <div>
+    return ( <div className="blogContainer">
         {blogs.map((blog) => (
             <Link to={`blog/${blog.blog_id}`}>
-                <Blog key={blog.blog_id} 
+                <Blog 
+                key={blog.blog_id} 
                 id={blog.blog_id} 
                 blogTitle={blog.blog_title} 
                 blogContent={blog.blog_content} 

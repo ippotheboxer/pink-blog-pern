@@ -6,7 +6,7 @@ function WriteBlog() {
         <div className="content">
         <h2 style={{paddingTop: "80px", paddingBottom: "40px"}} >Write blog</h2>
         <Prompt />
-        <BlogForm />
+        <BlogForm/>
         </div>
     </main>
 }

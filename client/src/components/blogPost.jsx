@@ -2,6 +2,7 @@ import { deleteBlog } from "../api/blog";
 import { useParams } from "react-router-dom";
 import { FaPencilAlt } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function BlogPost(props) {
     const { id } = useParams();
@@ -22,10 +23,12 @@ export default function BlogPost(props) {
         <p className="authorText">Written by {props.authorName}</p>
         <p>{props.dateCreated}</p>
         <div className="blogActionContainer">
+            <Link to={`/edit/blog/${id}`}>
             <button className="post blog-action edit">
                 <FaPencilAlt className="icon editIcon" />
                 Edit
                 </button>
+                </Link>
             <button className="post blog-action delete" onClick={deleteCurrentBlog}>
                 <FaTrashAlt className="icon deleteIcon" /> 
                 Delete

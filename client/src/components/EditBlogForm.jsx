@@ -1,9 +1,9 @@
-import { createBlog } from "../api/blog";
+import { updateBlog } from "../api/blog";
 import { useState } from "react";
 
 const username = "sophie";
 
-export default function BlogForm() {
+export default function EditBlogForm(props) {
     const [blogData, setBlogData] = useState({
         blog_title: '',
         blog_content: '',
@@ -15,10 +15,9 @@ export default function BlogForm() {
     const onSubmitForm = async e => {
         e.preventDefault();
         try {
-            console.log(blogData);
-            const {data} = await createBlog(blogData);
+            await updateBlog(blogData, props.id);
             setError('');
-            setSuccess(data.message);
+            setSuccess("Blog edited successfully.");
             setBlogData({
                 blog_title: '',
                 blog_content: '',
@@ -41,11 +40,11 @@ export default function BlogForm() {
             <input 
             type="text" 
             name="blog_title" 
-            value={blogData.blog_title}
+            value={blogData.blog_title} 
             onChange={(e) => onChange(e)}/>
 
         <label for="content">Content</label>
-            <textarea 
+            <input 
             type="text" 
             name="blog_content" 
             value={blogData.blog_content} 
@@ -60,7 +59,7 @@ export default function BlogForm() {
             <div style={{ color: '#804554', margin: '10px 0' }}>{error}</div>
             <div style={{ color: '#78AA7F', margin: '10px 0' }}>{success}</div>
             
-            <button className="post">Post</button>
+            <button className="post">Update</button>
 
         </form>
     )

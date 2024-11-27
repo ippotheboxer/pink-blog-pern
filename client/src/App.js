@@ -14,6 +14,7 @@ import ViewBlogs from "./pages/ViewBlogs";
 import WriteBlog from "./pages/WriteBlog"
 import FullPageBlog from "./pages/FullPageBlog";
 import Login from "./pages/Login";
+import EditBlog from "./pages/EditBlog";
 
 function App() {
   const user = true;
@@ -28,6 +29,7 @@ function App() {
         <Route path='/view' element={user ? <ViewBlogs /> : <Login />} />
         <Route path='/write' element={user ? <WriteBlog /> : <Login />}></Route>
         <Route path='/view/blog/:id' element={user ? <FullPageBlog /> : <Navigate to="/login"/>} />
+        <Route path='/edit/blog/:id' element={user ? <EditBlog /> : <Login />}  />
         <Route path='*' element={<NoPage />} />
       </Routes>
     </BrowserRouter>
