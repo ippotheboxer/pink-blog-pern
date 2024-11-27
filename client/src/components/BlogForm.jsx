@@ -1,7 +1,7 @@
 import { createBlog } from "../api/blog";
 import { useState } from "react";
 
-const username = "sophie";
+const username = localStorage.getItem('user');
 
 export default function BlogForm() {
     const [blogData, setBlogData] = useState({

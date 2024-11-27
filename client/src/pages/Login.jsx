@@ -2,8 +2,12 @@ import Google from "../img/google.png"
 import Facebook from "../img/facebook.png"
 import Github from "../img/github.png"
 
+import LocalLoginForm from "../components/LocalLoginForm"
+import Layout from "../components/Layout";
+
 function Login() {
     return (
+        <Layout>
         <div className="gradient-background">
         <div className="login">
         <h1 className="loginTitle">Chose Login Method</h1>
@@ -28,13 +32,12 @@ function Login() {
 
 
                 <div className="right">
-                <input type="text" placeholder="Username"/>
-                <input type="text" placeholder="Password"/>
-                <button className="submit">Login</button>
+                <LocalLoginForm />
                 </div>
             </div>
             </div>
             </div>
+            </Layout>
     )
 }
 

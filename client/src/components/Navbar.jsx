@@ -1,24 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
-function Navbar({user}) {
-    return <div className="navbar"> 
-    <span className="logo"> <Link className="link" to="/">Pink Blog</Link> </span>
-    <div className="pageLinks">
-    <Link className="link pageLinkItem" to="/write">Write blog</Link>
-    <Link className="link pageLinkItem" to="/view">View blogs</Link>
-    </div>
-    {
-    user ? (
-    <ul className="list">
-        <li className="listItem">
-            <img src="https://i.pinimg.com/564x/3f/fe/7c/3ffe7cb08253eaf8b45386cff32a03b7.jpg" alt="avatar" className="avatar" />
-        </li>
-        <li className="listItem">Jane Doe</li>
-        <li className="listItem">Logout</li>
-    </ul>) : (<Link className="link" to="/login">Login</Link>)
-}
-    </div>
+function Navbar() {
+    const {isAuth} = useSelector(state => state.auth);
+
+    return (
+    <nav className="navbar">
+        <div>
+            <NavLink to="/">
+            <span className="logo">Pink Blog</span>
+            </NavLink> 
+        </div>
+
+        {isAuth ? (
+          <div className='list pageLinks'>
+            <NavLink to='/write'>
+              <span className='pageLinkItem'>Write blog</span>
+            </NavLink>
+
+            <NavLink to='/view'>
+              <span className='pageLinkItem'>View blogs</span>
+            </NavLink>
+          </div>
+        ) : (
+          <div className='list pageLinks'>
+            <NavLink to='/login'>
+              <span className='pageLinkItem'>Login</span>
+            </NavLink>
+
+            <NavLink to='/register'>
+              <span className='pageLinkItem'>Register</span>
+            </NavLink>
+          </div>
+        )}
+    </nav>)
 }
 
 export default Navbar;
