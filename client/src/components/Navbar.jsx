@@ -14,6 +14,7 @@ function Navbar() {
   
       dispatch(unAuthenticateUser());
       localStorage.removeItem('isAuth');
+      localStorage.removeItem('user');
     } catch (error) {
       console.log(error.response);
     }

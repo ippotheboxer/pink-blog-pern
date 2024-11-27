@@ -98,8 +98,9 @@ h2 {
   display: block;
   height: 200px;
   width: 600px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   border-radius: 10px;
+  margin-right: 20px;
 }
 
 .blog-content {
@@ -140,6 +141,10 @@ form textarea {
 .content {
   padding-top: 20px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .post {
@@ -283,8 +288,6 @@ form input, textarea{
 }
 
 .blogPost h2 {
-  font-style: normal;
-  font-size: 40px;
   padding-top: 10px;
   padding-bottom: 20px;
 }
@@ -316,10 +319,17 @@ a:-webkit-any-link {
 }
 
 .blogContainer {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.blogBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .blogTitle {
@@ -329,4 +339,43 @@ a:-webkit-any-link {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   padding: 5px 10px;
+}
+
+@media (max-width: 1250px) {
+  .blogContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blog {
+    margin-right: 10px;
+    width: 350px;
+    height: 200px;
+  }
+  h1 {font-size: 4rem;}
+  h2 {font-size: 1.6rem;}
+
+  form input[type=text], textarea {
+    width: 500px;
+}
+}
+
+@media (max-width: 600px) {
+  .blogContainer {
+    grid-template-columns: 1fr;
+  }
+  .blog {
+    margin-right: 0;
+    width: 300px;
+    height: 200px;
+  }
+
+  h1 {font-size: 3rem;}
+  h2 {font-size: 1.5rem;}
+
+  .pageLinkItem {font-size: 0.8rem;}
+  p {font-size: 0.8rem;}
+
+  form input[type=text], textarea {
+    width: 300px;
+}
 }
